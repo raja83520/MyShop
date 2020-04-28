@@ -21,7 +21,6 @@ namespace MyShop.Core.Models
         public string Iamge { get; set; } 
 
 
-
        public Product()
         {
             this.Id = Guid.NewGuid().ToString();

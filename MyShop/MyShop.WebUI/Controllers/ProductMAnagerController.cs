@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MyShop.Core;
 using MyShop.Core.Models;
+using MyShop.Core.ViewModels;
 using MyShop.DataAccess.InMemory;
 
 namespace MyShop.WebUI.Controllers
@@ -12,30 +12,33 @@ namespace MyShop.WebUI.Controllers
     public class ProductManagerController : Controller
     {
         ProductRepository context;
+        ProductCategoryRepository productCategories;
 
         public ProductManagerController()
         {
             context = new ProductRepository();
+            productCategories = new ProductCategoryRepository();
         }
         // GET: ProductMAnager
         public ActionResult Index()
-        {
+        {     
             List<Product> products = context.Collection().ToList();
-            return View(products);
+                        return View(products);
         }
 
         public ActionResult Create()
         {
-            Product product = new Product();
-            return View(product);
+            ProductManagerViewModel viewModel = new ProductManagerViewModel();
+            viewModel.Product = new Product();
+            viewModel.ProductCategories = productCategories.Collection();
+             
+            return View(viewModel);
         }
         [HttpPost]
         public ActionResult Create(Product product)
         {
             if (!ModelState.IsValid)
-            {
                 return View(product);
-            }
             else
             {
                 context.Insert(product);
@@ -51,7 +54,13 @@ namespace MyShop.WebUI.Controllers
             if (product == null)
                 return HttpNotFound();
             else
-                return View(product);
+            {
+                ProductManagerViewModel viewModel = new ProductManagerViewModel();
+                viewModel.Product = product;
+                viewModel.ProductCategories = productCategories.Collection();
+               
+                return View(viewModel);
+            }
         }
 
         [HttpPost]
@@ -62,8 +71,8 @@ namespace MyShop.WebUI.Controllers
                 return HttpNotFound();
             else
             {
-                if (!ModelState.IsValid)                
-                    return View(product);                
+                if (!ModelState.IsValid)
+                    return View(product);
 
                 productToEdit.Category = product.Category;
                 productToEdit.Description = product.Description;
@@ -99,7 +108,7 @@ namespace MyShop.WebUI.Controllers
                 context.Commit();
                 return RedirectToAction("Index");
             }
-                
+
         }
 
     }
