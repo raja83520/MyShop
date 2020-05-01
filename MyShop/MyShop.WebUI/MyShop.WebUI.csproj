@@ -201,9 +201,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202005011557423_Initial.cs" />
-    <Compile Include="Migrations\202005011557423_Initial.designer.cs">
-      <DependentUpon>202005011557423_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\202005011645397_Initial.cs" />
+    <Compile Include="Migrations\202005011645397_Initial.designer.cs">
+      <DependentUpon>202005011645397_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -377,6 +377,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\ProductImages\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -408,8 +409,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005011557423_Initial.resx">
-      <DependentUpon>202005011557423_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005011645397_Initial.resx">
+      <DependentUpon>202005011645397_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
