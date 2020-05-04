@@ -60,6 +60,14 @@
     <Compile Include="Migrations\202005040349466_AddBasket1.designer.cs">
       <DependentUpon>202005040349466_AddBasket1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005041741054_Customers.cs" />
+    <Compile Include="Migrations\202005041741054_Customers.designer.cs">
+      <DependentUpon>202005041741054_Customers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005041748433_CustomersCorrected.cs" />
+    <Compile Include="Migrations\202005041748433_CustomersCorrected.designer.cs">
+      <DependentUpon>202005041748433_CustomersCorrected.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLRepository.cs" />
@@ -80,6 +88,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005040349466_AddBasket1.resx">
       <DependentUpon>202005040349466_AddBasket1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005041741054_Customers.resx">
+      <DependentUpon>202005041741054_Customers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005041748433_CustomersCorrected.resx">
+      <DependentUpon>202005041748433_CustomersCorrected.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
